@@ -1,17 +1,19 @@
 
 
 /** @type {import('./$types').LayoutServerLoad} */
-export async function load({ url }) {
+export async function load({ url, cookies }) {
+
+	
 	const publicLayout = [
 		'/',
 		'/login',
 		'/register',
-		'/logout'
 	];
 
 	const privateLayout = [
 		'/dashboard',
-		'/profile'
+		'/profile',
+		'/settings'
 	];
 
 	let key = ''
@@ -22,5 +24,6 @@ export async function load({ url }) {
 		key = 'private';
 	}
 
-    return { key }
+    return { key, cookies: cookies.getAll() }
 }
+

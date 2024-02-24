@@ -6,7 +6,7 @@
 
 <div id="app">
 	<div id="main" class="" in:fly={{ x: -100, duration: 200 }} out:fly={{ x: 100, duration: 200 }}>
-		<HeaderPage />
+		<HeaderPage on:dispatchLogout />
 		<div class="w-full">
 			<slot />
 		</div>

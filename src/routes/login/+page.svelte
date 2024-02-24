@@ -1,6 +1,12 @@
 <script>
 	import { goto } from '$app/navigation';
 
+	export let form;
+	export let data;
+
+	console.log(form);
+	console.log(data);
+
 	let username = '';
 	let password = '';
 
@@ -8,7 +14,8 @@
 		// Handle form submission
 		console.log('Username:', username);
 		console.log('Password:', password);
-		goto('/dashboard');
+
+		// goto('/dashboard');
 	}
 </script>
 
@@ -16,10 +23,10 @@
 	<title>Login Page</title>
 </svelte:head>
 
-<main class="flex items-center justify-center h-screen">
+<main class="flex items-center justify-center min-h-screen">
 	<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 		<h2 class="text-2xl font-bold mb-6">Login</h2>
-		<form on:submit|preventDefault={handleSubmit}>
+		<form method="post">
 			<div class="mb-4">
 				<label class="block text-gray-700 text-sm font-bold mb-2" for="username"> Username </label>
 				<input
@@ -27,6 +34,8 @@
 					id="username"
 					type="text"
 					placeholder="Enter your username"
+					autocomplete="off"
+					name="username"
 					bind:value={username}
 				/>
 			</div>
@@ -37,6 +46,8 @@
 					id="password"
 					type="password"
 					placeholder="Enter your password"
+					autocomplete="off"
+					name="password"
 					bind:value={password}
 				/>
 			</div>

@@ -1,8 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+
 	onMount(() => {
-		console.log('The layout component has been mounted');
+		// console.log('The layout component has been mounted');
 	});
+
+	const dispatch = createEventDispatcher();
+
+	const onLogout = () => {
+		dispatch('dispatchLogout', { logout: true });
+	};
 </script>
 
 <nav class="bg-gray-800">
@@ -15,30 +23,25 @@
 				<div class="hidden md:block">
 					<div class="ml-10 flex items-baseline space-x-4">
 						<a
-							href=""
-							class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-							>Home</a
-						>
-						<a
-							href=""
+							href="/dashboard"
 							class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 							>Dashboard</a
 						>
 						<a
-							href=""
+							href="/profile"
 							class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 							>Profile</a
 						>
 						<a
-							href=""
+							href="/settings"
 							class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 							>Settings</a
 						>
-						<a
-							href="/"
+						<button
+							on:click={onLogout}
 							class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-							>Logout</a
-						>
+							>Logout
+						</button>
 					</div>
 				</div>
 			</div>
