@@ -1,4 +1,4 @@
-import { getUser } from '$lib/utils/store';
+
 import { redirect, fail } from '@sveltejs/kit';
 
 
@@ -24,3 +24,4 @@ export const actions = {
 
 	}
 };
+
